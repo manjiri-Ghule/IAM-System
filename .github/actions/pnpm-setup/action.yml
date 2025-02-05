@@ -1,0 +1,44 @@
+name: Setup PNPM
+description: Sets up Node.js and runs PNPM so dependencies are installed.
+
+inputs:
+  node-version:
+    description: Node.js version
+    required: false
+    default: "22"
+
+env:
+  # Temporary workaround for https://github.com/nodejs/corepack/issues/612
+  # TODO: Remove this once the issue is fixed
+  COREPACK_INTEGRITY_KEYS: 0
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+        check-latest: true
+
+    - name: Enable Corepack
+      shell: bash
+      run: corepack enable
+
+    - name: PNPM store cache
+      uses: ./.github/actions/pnpm-store-cache
+
+    - name: Cypress binary cache
+      uses: ./.github/actions/cypress-cache
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --prefer-offline --frozen-lockfile
+      working-directory: js
+
+    # This step is only needed to ensure that the Cypress binary is installed.
+    # If the binary was retrieved from the cache, this step is a no-op.
+    - name: Install Cypress dependencies
+      shell: bash
+      working-directory: js/apps/admin-ui
+      run: pnpm exec cypress install
