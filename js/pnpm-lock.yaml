@@ -357,8 +357,8 @@ importers:
         specifier: ^22.13.1
         version: 22.13.1
       chai:
-        specifier: ^5.1.2
-        version: 5.1.2
+        specifier: ^5.2.0
+        version: 5.2.0
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -2341,6 +2341,10 @@ packages:
     resolution: {integrity: sha512-aGtmf24DW6MLHHG5gCx4zaI3uBq3KRtxeVs0DjFH6Z0rDNbsvTxFASFvdj79pxjxZ8/5u3PIiN3IwEIQkiiuPw==}
     engines: {node: '>=12'}
 
+  chai@5.2.0:
+    resolution: {integrity: sha512-mCuXncKXk5iCLhfhwTc0izo0gtEmpz5CtG2y8GiOINBlMVS6v8TMRc5TaLWKS6692m9+dVVfzgeVxR5UxWHTYw==}
+    engines: {node: '>=12'}
+
   chalk@3.0.0:
     resolution: {integrity: sha512-4D3B6Wf41KOYRFdszmDqMCGq5VV/uMAB273JILmO+3jAlh8X4qDtdtgCR3fxtbLEMzSx22QdhnDcJvu2u1fVwg==}
     engines: {node: '>=8'}
@@ -3655,6 +3659,7 @@ packages:
 
   jquery@3.4.1:
     resolution: {integrity: sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==}
+    deprecated: This version is deprecated. Please upgrade to the latest version or find support at https://www.herodevs.com/support/jquery-nes.
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -6917,7 +6922,7 @@ snapshots:
     dependencies:
       '@vitest/spy': 3.0.5
       '@vitest/utils': 3.0.5
-      chai: 5.1.2
+      chai: 5.2.0
       tinyrainbow: 2.0.0
 
   '@vitest/mocker@3.0.5(vite@6.0.11(@types/node@22.13.1)(lightningcss@1.29.1)(terser@5.36.0)(tsx@4.19.2)(yaml@2.7.0))':
@@ -7328,6 +7333,14 @@ snapshots:
       check-error: 2.1.1
       deep-eql: 5.0.2
       loupe: 3.1.2
+      pathval: 2.0.0
+
+  chai@5.2.0:
+    dependencies:
+      assertion-error: 2.0.1
+      check-error: 2.1.1
+      deep-eql: 5.0.2
+      loupe: 3.1.3
       pathval: 2.0.0
 
   chalk@3.0.0:
